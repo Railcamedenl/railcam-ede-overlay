@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Railcam Live Ede - Treinschema</title>
+  <meta http-equiv="refresh" content="60">
+  <style>
+    body {
+      background-color: #001f3f;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+    h1 {
+      color: #FFD700;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #003366;
+    }
+    tr:nth-child(even) {
+      background-color: #002244;
+    }
+    .tijd {
+      width: 60px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🚆 Vertrekkende treinen - Ede-Wageningen</h1>
+  <table>
+    <thead>
+      <tr>
+        <th class="tijd">Min</th>
+        <th>Spoor</th>
+        <th>Type</th>
+        <th>Bestemming</th>
+        <th>Via</th>
+      </tr>
+    </thead>
+    <tbody id="treinen-tabel">
+    </tbody>
+  </table>
+
+  <script>
+    // Voorbeeld treindata - dit kan later dynamisch ingeladen worden uit een .json bestand
+    const treinen = [
+      { minuut: '12', spoor: '3', type: 'IC', bestemming: 'Den Helder', via: 'Utrecht, A’dam C., Sloterdijk' },
+      { minuut: '12', spoor: '4', type: 'Sprinter', bestemming: 'Arnhem Centraal', via: '' },
+      { minuut: '18', spoor: '5', type: 'IC', bestemming: 'Nijmegen', via: 'Via Arnhem' },
+      { minuut: '23', spoor: '1', type: 'Sprinter', bestemming: 'Amersfoort', via: 'Ede Centrum, Barneveld' },
+      { minuut: '25', spoor: '3', type: 'IC', bestemming: 'Den Haag Centraal', via: 'Utrecht, Schiphol, Leiden' },
+      { minuut: '28', spoor: '5', type: 'IC', bestemming: 'Arnhem Centraal', via: '' },
+      { minuut: '31', spoor: '3', type: 'IC', bestemming: 'Schiphol Airport', via: 'Utrecht, A’dam Zuid' },
+      { minuut: '35', spoor: '5', type: 'IC', bestemming: 'Nijmegen', via: 'Via Arnhem' },
+      { minuut: '41', spoor: '3', type: 'IC', bestemming: 'Den Helder', via: 'Utrecht, A’dam C., Sloterdijk' },
+      { minuut: '42', spoor: '4', type: 'Sprinter', bestemming: 'Arnhem Centraal', via: 'Wolfheze, Oosterbeek' },
+      { minuut: '48', spoor: '5', type: 'IC', bestemming: 'Nijmegen', via: 'Via Arnhem' },
+      { minuut: '53', spoor: '1', type: 'Sprinter', bestemming: 'Amersfoort', via: 'Ede Centrum, Barneveld' },
+      { minuut: '57', spoor: '3', type: 'IC', bestemming: 'Den Haag Centraal', via: 'Utrecht, Schiphol, Leiden' },
+      { minuut: '58', spoor: '5', type: 'IC', bestemming: 'Arnhem Centraal', via: '' }
+    ];
+
+    const tabel = document.getElementById('treinen-tabel');
+    treinen.forEach(trein => {
+      const rij = document.createElement('tr');
+      rij.innerHTML = `
+        <td>${trein.minuut}</td>
+        <td>${trein.spoor}</td>
+        <td>${trein.type}</td>
+        <td>${trein.bestemming}</td>
+        <td>${trein.via}</td>
+      `;
+      tabel.appendChild(rij);
+    });
+  </script>
+</body>
+</html>
