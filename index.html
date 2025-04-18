@@ -35,6 +35,7 @@
     }
   </style>
 </head>
+  <div id="klok" style="font-size: 20px; margin-bottom: 10px;"></div>
 <body>
   <h1>🚆 Vertrekkende treinen - Ede-Wageningen</h1>
   <table>
@@ -85,3 +86,12 @@
   </script>
 </body>
 </html>
+function updateKlok() {
+  const nu = new Date();
+  const uren = String(nu.getHours()).padStart(2, '0');
+  const minuten = String(nu.getMinutes()).padStart(2, '0');
+  const seconden = String(nu.getSeconds()).padStart(2, '0');
+  document.getElementById('klok').textContent = `🕒 Tijd: ${uren}:${minuten}:${seconden}`;
+}
+setInterval(updateKlok, 1000);
+updateKlok();
