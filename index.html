@@ -83,10 +83,7 @@
       `;
       tabel.appendChild(rij);
     });
-  </script>
-</body>
-</html>
-function updateKlok() {
+    function updateKlok() {
   const nu = new Date();
   const uren = String(nu.getHours()).padStart(2, '0');
   const minuten = String(nu.getMinutes()).padStart(2, '0');
@@ -95,3 +92,7 @@ function updateKlok() {
 }
 setInterval(updateKlok, 1000);
 updateKlok();
+  </script>
+</body>
+</html>
+
